@@ -1,0 +1,490 @@
+<!DOCTYPE html><html lang="zh-CN" class> <head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>论文调研数据库 | 张羽 的主页</title><meta name="author" content="张羽"><meta name="copyright" content="张羽"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#eef5ff"><script>(function(){const defaultThemeMode = "light";
+const themeColorLight = "#eef5ff";
+const themeColorDark = "#081220";
+
+    (() => {
+      try {
+        const root = document.documentElement;
+        const savedTheme = localStorage.getItem('appearance-mode');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const hour = new Date().getHours();
+        const isEvening = hour >= 17 && hour < 20;
+        const resolvedTheme =
+          savedTheme === 'light' || savedTheme === 'dark'
+            ? savedTheme
+            : isEvening
+              ? 'dark'
+              : defaultThemeMode === 'dark'
+                ? 'dark'
+                : prefersDark
+                  ? 'dark'
+                  : 'light';
+
+        root.classList.toggle('dark', resolvedTheme === 'dark');
+        root.dataset.theme = resolvedTheme;
+        root.dataset.appearanceMode = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'auto';
+        root.dataset.dayPhase = isEvening ? 'evening' : 'day';
+
+        const themeMeta = document.querySelector('meta[name="theme-color"]');
+        themeMeta?.setAttribute(
+          'content',
+          resolvedTheme === 'dark' ? themeColorDark : themeColorLight,
+        );
+      } catch {
+        document.documentElement.classList.toggle('dark', defaultThemeMode === 'dark');
+        document.documentElement.dataset.theme = defaultThemeMode;
+        document.documentElement.dataset.appearanceMode = 'auto';
+        document.documentElement.dataset.dayPhase = 'day';
+      }
+    })();
+  })();</script><!-- Open Graph --><!-- <include src="./head/Open_Graph.astro" /> --><link rel="shortcut icon" href="/img/title.png" media="(prefers-color-scheme: light)"><link rel="shortcut icon" href="/img/title-dark.png" media="(prefers-color-scheme: dark)"><!-- <link rel="canonical" href={urlNoIndex(null, config.pretty_urls.trailing_index, config.pretty_urls.trailing_html)} /> --><!-- 預解析 --><!-- <include src="./head/preconnect.astro" /> --><!-- 網站驗證 --><!-- <include src="./head/site_verification.astro" /> --><!-- PWA --><link rel="manifest" href="/manifest.json"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Yu Zhang"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png"><!-- {theme.snackbar && theme.snackbar.enable && (
+    <link rel="stylesheet" href={url_for(theme.asset.snackbar_css)} media="print" onload="this.media='all'" />
+  )}
+
+  {theme.lightbox === 'fancybox' && (
+    <link rel="stylesheet" href={url_for(theme.asset.fancybox_css)} media="print" onload="this.media='all'" />
+  )}
+
+  {inject_head_js()} --><!-- google_adsense --><!-- <include src="./head/google_adsense.astro" /> --><!-- analytics --><!-- <include src="./head/analytics.astro" /> --><!-- global config --><!-- <Config config={config} lang={lang}/>
+  <ConfigSite /> --><!-- {injectHtml(theme.inject.head)} --><link rel="stylesheet" href="/_astro/base.BLN7wz7h.css"><link rel="stylesheet" href="/_astro/layout._8ZI_9-P.css"></head><body data-page-kind="apps">  <!-- <include src="./fullpage-loading.astro" /> --> <!-- {theme.preloader.enable ? (
+  theme.preloader.source === 1 ? (
+    <include src="./fullpage-loading.astro" />
+  ) : (
+    <include src="./pace.astro" />
+  )
+) : null} --> <!-- {partial('includes/loading/index', {}, { cache: true })} --> <!-- {theme.background && (
+      <div id="web_bg" style={getBgPath(theme.background)}></div>
+    )} --> <!-- {partial('includes/sidebar', {}, { cache: true })} --> <div id="sidebar" class="mobile-editorial-menu" data-mobile-menu-root> <div id="menu-mask" data-mobile-menu-mask></div> <aside id="sidebar-menus" class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Mobile index" aria-hidden="true"> <div class="mobile-menu-top"> <p class="mobile-menu-eyebrow">Mobile index</p> <button class="mobile-menu-close" type="button" data-mobile-menu-close aria-label="关闭"> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" vector-effect="non-scaling-stroke"></path></svg> </button> </div> <nav class="mobile-menu-list" aria-label="Mobile index"> <a class="mobile-menu-link " href="/zh-CN/"> <span class="mobile-menu-index">01</span> <span class="mobile-menu-text"> <span class="mobile-menu-title">主页</span> <span class="mobile-menu-description">返回首页</span> </span> </a><a class="mobile-menu-link " href="/zh-CN/board/"> <span class="mobile-menu-index">02</span> <span class="mobile-menu-text"> <span class="mobile-menu-title">关于</span> <span class="mobile-menu-description">个人简介</span> </span> </a><a class="mobile-menu-link " href="/zh-CN/research/"> <span class="mobile-menu-index">03</span> <span class="mobile-menu-text"> <span class="mobile-menu-title">研究</span> <span class="mobile-menu-description">研究方向</span> </span> </a><a class="mobile-menu-link " href="/zh-CN/publications/"> <span class="mobile-menu-index">04</span> <span class="mobile-menu-text"> <span class="mobile-menu-title">发表</span> <span class="mobile-menu-description">成果索引</span> </span> </a><a class="mobile-menu-link " href="/zh-CN/articles/"> <span class="mobile-menu-index">05</span> <span class="mobile-menu-text"> <span class="mobile-menu-title">文章</span> <span class="mobile-menu-description">写作与笔记</span> </span> </a><a class="mobile-menu-link is-active" href="/zh-CN/apps/" aria-current="page"> <span class="mobile-menu-index">06</span> <span class="mobile-menu-text"> <span class="mobile-menu-title">应用</span> <span class="mobile-menu-description">Web 应用</span> </span> </a> </nav> <div class="mobile-menu-language" data-language-switch> <p> <span>语言</span> <span>点击切换不同语言</span> </p> <button type="button" class="mobile-menu-language-toggle" data-language-toggle aria-haspopup="listbox" aria-expanded="false"> <span>中文</span> <i class="mobile-menu-language-caret" aria-hidden="true"></i> </button> <div class="mobile-menu-language-pop" data-language-pop hidden> <a href="/en/apps/">English</a> </div> </div> <p class="mobile-menu-foot">© 2026 Yu Zhang. Built with Astro.</p> </aside> </div> <script type="module">document.querySelectorAll("[data-language-switch]").forEach(n=>{const a=n.querySelector("[data-language-toggle]"),e=n.querySelector("[data-language-pop]");if(!a||!e)return;const r=()=>{e.setAttribute("hidden",""),a.setAttribute("aria-expanded","false")},d=()=>{e.removeAttribute("hidden"),a.setAttribute("aria-expanded","true")};a.addEventListener("click",t=>{t.stopPropagation(),e.hasAttribute("hidden")?d():r()}),document.addEventListener("click",t=>{e.hasAttribute("hidden")||n.contains(t.target)||r()}),document.addEventListener("keydown",t=>{t.key==="Escape"&&r()})});</script> <div id="body-wrap" class="page type-apps is-single-column" data-page-kind="apps"> <header id="page-header" class="page-header-compact"> <nav id="nav" class="site-nav" aria-label="Primary navigation"> <div id="blog-info"> <a class="nav-site-title" href="/zh-CN/" aria-label="张羽 的主页 home"> <span class="site-mark" aria-hidden="true">Y</span>  <span class="site-name">张羽 的主页</span> </a> </div> <div id="menus"> <div class="menus_items"><div class="menus_item"><a class="site-page " href="/zh-CN/"><span>主页</span></a></div><div class="menus_item"><a class="site-page " href="/zh-CN/board/"><span>关于</span></a></div><div class="menus_item"><a class="site-page " href="/zh-CN/research/"><span>研究</span></a></div><div class="menus_item"><a class="site-page " href="/zh-CN/publications/"><span>发表</span></a></div><div class="menus_item"><a class="site-page " href="/zh-CN/articles/"><span>文章</span></a></div><div class="menus_item"><a class="site-page is-active" href="/zh-CN/apps/" aria-current="page"><span>应用</span></a></div></div> <div class="menus_items"><div class="menus_item"><span class="site-page group "><span>中文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/en/apps/"><span>English</span></a></li></ul></div></div> <button id="darkmode" class="nav-control nav-theme-toggle" type="button" aria-label="切换深色模式"> <span class="site-page nav-icon-button"> <i class="fas fa-moon fa-fw"></i> </span> </button> <button id="search-button" class="nav-control nav-search-toggle" type="button" aria-label="搜索"> <span class="site-page nav-icon-button"> <i class="fas fa-search fa-fw"></i> </span> </button> <button id="toggle-menu" class="nav-control nav-menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="sidebar-menus" aria-expanded="false"> <span class="site-page nav-icon-button menu-line-button" aria-hidden="true"> <span></span> <span></span> <span></span> </span> </button> </div> </nav> <div id="page-site-info"> <p class="page-kicker">应用</p> <h1 id="site-title">论文调研数据库</h1> </div> </header> <script type="module" src="/_astro/index.astro_astro_type_script_index_0_lang.DyvPffvz.js"></script>  <main class="layout page-layout is-single" id="content-inner" data-pagefind-ignore>  <div id="app-detail"> <section class="app-detail-hero"> <div class="app-detail-copy" data-motion-reveal> <a class="app-detail-back" href="/zh-CN/apps/">返回应用</a> <p class="app-detail-kicker">Paper Research Database</p> <h2 class="app-detail-title">论文调研数据库</h2> <p class="app-detail-summary">这个应用不会把论文数据上传或打包进网站。它只在浏览器里读取你手动选择的本地 JSON，并把筛选、收藏、相关度和自定义标签组织成一个可持续使用的研究界面。</p> </div> <div class="app-detail-meta" data-motion-reveal style="--reveal-delay: 80ms;"> <div> <span>年份</span> <strong>2026</strong> </div> <div> <span>类型</span> <strong>Research Tool</strong> </div> <div> <span>状态</span> <strong>Local JSON</strong> </div> </div> </section> <section class="paper-research-app" data-paper-research-app data-lang="zh-CN"> <header class="paper-research-hero"> <div class="paper-research-hero-copy"> <p class="paper-research-kicker">Local paper database</p> <h2>载入本地论文 JSON，开始调研。</h2> <p>这个应用不会请求站内数据，也不会把你的论文 JSON 打包进网站。请选择本地 JSON 文件，浏览器会在当前页面内解析并渲染。</p> <label class="paper-json-picker"> <span>选择本地 JSON</span> <input data-paper-json-input type="file" accept=".json,application/json"> </label> </div> <aside class="paper-research-metrics"> <div class="paper-metric-grid" data-paper-metrics></div> <p class="paper-status-note" data-paper-status>等待选择本地 JSON 文件。</p> </aside> </header> <div class="paper-research-layout"> <aside class="paper-research-sidebar"> <section class="paper-tool-panel"> <h3>筛选条件</h3> <div class="paper-control-grid"> <input data-paper-search type="search" placeholder="搜索标题、摘要、作者、标签"> <div class="paper-filter-grid"> <label> <span>会议</span> <select data-paper-filter="conference"></select> </label> <label> <span>年份</span> <select data-paper-filter="year"></select> </label> <label> <span>标签</span> <select data-paper-filter="tag"></select> </label> <label> <span>相关度</span> <select data-paper-filter="priority"></select> </label> </div> <label class="paper-favorite-toggle"> <input data-paper-favorite-only type="checkbox"> <span>只看收藏</span> </label> <button class="paper-clear-filters" type="button" data-paper-clear>清空筛选</button> </div> <p class="paper-local-note">收藏、相关度、笔记和自定义标签只保存在当前浏览器 localStorage。</p> </section> <section class="paper-tool-panel"> <h3>建议主线</h3> <ul class="paper-direction-list" data-paper-directions></ul> </section> <section class="paper-tool-panel"> <h3>Top 标签</h3> <div class="paper-pill-row" data-paper-top-tags></div> </section> <section class="paper-tool-panel"> <h3>数据边界</h3> <ul class="paper-limitation-list" data-paper-limitations></ul> </section> </aside> <main class="paper-research-main"> <div class="paper-toolbar"> <div class="paper-tabs" role="tablist"> <button class="is-active" type="button" data-paper-tab="main">主库</button> <button type="button" data-paper-tab="archive">Archive</button> <button type="button" data-paper-tab="deep">深读</button> </div> <p data-paper-result-meta>选择本地 JSON 后，论文记录会显示在这里。</p> </div> <div class="paper-list" data-paper-list> <div class="paper-empty-state">选择本地 JSON 后，论文记录会显示在这里。</div> </div> </main> </div> </section> <script>(function(){const copy = {"kicker":"Local paper database","title":"载入本地论文 JSON，开始调研。","description":"这个应用不会请求站内数据，也不会把你的论文 JSON 打包进网站。请选择本地 JSON 文件，浏览器会在当前页面内解析并渲染。","choose":"选择本地 JSON","loaded":"已读取本地 JSON。刷新页面后需要重新选择文件。","idle":"等待选择本地 JSON 文件。","failed":"JSON 解析失败，请检查文件结构。","search":"搜索标题、摘要、作者、标签","clear":"清空筛选","favoriteOnly":"只看收藏","filters":"筛选条件","directions":"建议主线","topTags":"Top 标签","limitations":"数据边界","main":"主库","archive":"Archive","deep":"深读","results":"条结果","empty":"当前筛选条件下没有匹配条目。","notLoaded":"选择本地 JSON 后，论文记录会显示在这里。","conference":"会议","year":"年份","tag":"标签","priority":"相关度","all":"全部","favorite":"收藏","notes":"我的笔记","customTags":"自定义标签","selfRating":"我的相关度","saveHint":"收藏、相关度、笔记和自定义标签只保存在当前浏览器 localStorage。"};
+
+  const roots = Array.from(document.querySelectorAll('[data-paper-research-app]'));
+
+  roots.forEach((root) => {
+    const storageKey = 'paper-research-database-user-notes-v1';
+    const state = {
+      loaded: false,
+      tab: 'main',
+      search: '',
+      conference: '',
+      year: '',
+      tag: '',
+      priority: '',
+      favoriteOnly: false,
+      mainPapers: [],
+      archivedPapers: [],
+      metadata: {},
+      userNotes: {},
+    };
+
+    const jsonInput = root.querySelector('[data-paper-json-input]');
+    const statusEl = root.querySelector('[data-paper-status]');
+    const metricsEl = root.querySelector('[data-paper-metrics]');
+    const searchEl = root.querySelector('[data-paper-search]');
+    const favoriteOnlyEl = root.querySelector('[data-paper-favorite-only]');
+    const clearEl = root.querySelector('[data-paper-clear]');
+    const listEl = root.querySelector('[data-paper-list]');
+    const resultMetaEl = root.querySelector('[data-paper-result-meta]');
+    const directionsEl = root.querySelector('[data-paper-directions]');
+    const topTagsEl = root.querySelector('[data-paper-top-tags]');
+    const limitationsEl = root.querySelector('[data-paper-limitations]');
+    const tabButtons = Array.from(root.querySelectorAll('[data-paper-tab]'));
+    const filterEls = Array.from(root.querySelectorAll('[data-paper-filter]'));
+
+    const escapeHtml = (value) =>
+      String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+
+    const asArray = (value) => {
+      if (Array.isArray(value)) return value.filter(Boolean);
+      if (typeof value === 'string' && value.trim()) return [value.trim()];
+      return [];
+    };
+
+    const normalizePaperList = (payload) => {
+      if (Array.isArray(payload)) return { mainPapers: payload, archivedPapers: [], metadata: {} };
+      return {
+        mainPapers: Array.isArray(payload?.mainPapers) ? payload.mainPapers : Array.isArray(payload?.papers) ? payload.papers : [],
+        archivedPapers: Array.isArray(payload?.archivedPapers) ? payload.archivedPapers : Array.isArray(payload?.archive) ? payload.archive : [],
+        metadata: payload?.metadata && typeof payload.metadata === 'object' ? payload.metadata : {},
+      };
+    };
+
+    const paperId = (paper) => String(paper.id || paper.doi || paper.title || Math.random());
+
+    const loadUserNotes = () => {
+      try {
+        state.userNotes = JSON.parse(window.localStorage.getItem(storageKey) || '{}');
+      } catch {
+        state.userNotes = {};
+      }
+    };
+
+    const saveUserNotes = () => {
+      window.localStorage.setItem(storageKey, JSON.stringify(state.userNotes));
+    };
+
+    const getNote = (paper) => {
+      const id = paperId(paper);
+      if (!state.userNotes[id]) {
+        state.userNotes[id] = { favorite: false, rating: '', tags: '', note: '' };
+      }
+      return state.userNotes[id];
+    };
+
+    const allPapers = () => [...state.mainPapers, ...state.archivedPapers];
+    const deepPapers = () => allPapers().filter((paper) =>
+      Boolean(paper.deep_dive || paper.deep_read_status || paper.deep_read_summary || paper.deep_read_relevance)
+    );
+    const currentDataset = () => {
+      if (state.tab === 'archive') return state.archivedPapers;
+      if (state.tab === 'deep') return deepPapers();
+      return state.mainPapers;
+    };
+
+    const combinedTags = (paper) => {
+      const note = getNote(paper);
+      return [
+        ...asArray(paper.tags),
+        ...asArray(paper.related_axes),
+        ...String(note.tags || '').split(',').map((tag) => tag.trim()).filter(Boolean),
+      ];
+    };
+
+    const uniqueSorted = (values) =>
+      [...new Set(values.filter(value => value !== undefined && value !== null && String(value).trim()).map(String))]
+        .sort((a, b) => a.localeCompare(b));
+
+    const filterOptions = () => {
+      const papers = allPapers();
+      return {
+        conferences: uniqueSorted(papers.map(paper => paper.conference)),
+        years: uniqueSorted(papers.map(paper => paper.year)).sort((a, b) => Number(b) - Number(a)),
+        tags: uniqueSorted(papers.flatMap(paper => combinedTags(paper))),
+        priorities: uniqueSorted(papers.map(paper => paper.priority_level)),
+      };
+    };
+
+    const setStatus = (text) => {
+      if (statusEl) statusEl.textContent = text;
+    };
+
+    const renderSelect = (select, values, selected) => {
+      select.innerHTML = [
+        `<option value="">${escapeHtml(copy.all)}</option>`,
+        ...values.map(value => `<option value="${escapeHtml(value)}"${String(value) === String(selected) ? ' selected' : ''}>${escapeHtml(value)}</option>`),
+      ].join('');
+    };
+
+    const renderFilters = () => {
+      const options = filterOptions();
+      filterEls.forEach((select) => {
+        const kind = select.dataset.paperFilter;
+        if (kind === 'conference') renderSelect(select, options.conferences, state.conference);
+        if (kind === 'year') renderSelect(select, options.years, state.year);
+        if (kind === 'tag') renderSelect(select, options.tags, state.tag);
+        if (kind === 'priority') renderSelect(select, options.priorities, state.priority);
+      });
+    };
+
+    const renderMetrics = () => {
+      if (!metricsEl) return;
+      const metrics = [
+        ['Main', state.mainPapers.length],
+        ['Archive', state.archivedPapers.length],
+        ['Deep', deepPapers().length],
+        ['Total', allPapers().length],
+      ];
+      metricsEl.innerHTML = metrics
+        .map(([label, value]) => `
+          <div class="paper-metric">
+            <span>${escapeHtml(label)}</span>
+            <strong>${escapeHtml(value)}</strong>
+          </div>
+        `)
+        .join('');
+    };
+
+    const renderMetadata = () => {
+      if (directionsEl) {
+        const directions = asArray(state.metadata.proposalDirections).slice(0, 6);
+        directionsEl.innerHTML = directions.length
+          ? directions.map(item => `<li>${escapeHtml(typeof item === 'string' ? item : item.title || item.name || JSON.stringify(item))}</li>`).join('')
+          : '<li>No local metadata loaded yet.</li>';
+      }
+
+      if (limitationsEl) {
+        const limitations = asArray(state.metadata.limitations).slice(0, 5);
+        limitationsEl.innerHTML = limitations.length
+          ? limitations.map(item => `<li>${escapeHtml(item)}</li>`).join('')
+          : '<li>No boundary notes loaded yet.</li>';
+      }
+
+      if (topTagsEl) {
+        const topTags = asArray(state.metadata.topTags).slice(0, 14);
+        topTagsEl.innerHTML = topTags.length
+          ? topTags.map(item => {
+              const tag = typeof item === 'string' ? item : item.tag || item.name || '';
+              const count = typeof item === 'object' && item.count ? ` · ${item.count}` : '';
+              return `<button type="button" class="paper-pill" data-pick-paper-tag="${escapeHtml(tag)}">${escapeHtml(tag)}${escapeHtml(count)}</button>`;
+            }).join('')
+          : '<span class="paper-pill">No tags</span>';
+      }
+    };
+
+    const matchesFilters = (paper) => {
+      const note = getNote(paper);
+      const haystack = [
+        paper.title,
+        paper.abstract,
+        paper.authors,
+        paper.conference,
+        paper.year,
+        paper.main_contribution,
+        paper.problem_setting,
+        ...combinedTags(paper),
+      ].flat().join(' ').toLowerCase();
+
+      if (state.search && !haystack.includes(state.search.toLowerCase())) return false;
+      if (state.conference && String(paper.conference) !== state.conference) return false;
+      if (state.year && String(paper.year) !== state.year) return false;
+      if (state.tag && !combinedTags(paper).map(String).includes(state.tag)) return false;
+      if (state.priority && String(paper.priority_level) !== state.priority) return false;
+      if (state.favoriteOnly && !note.favorite) return false;
+      return true;
+    };
+
+    const filteredPapers = () => currentDataset().filter(matchesFilters);
+
+    const renderLinks = (paper) => {
+      const links = [
+        ...(Array.isArray(paper.links) ? paper.links : []),
+        paper.pdf_url ? { label: 'PDF', url: paper.pdf_url } : null,
+        paper.oa_url ? { label: 'Open access', url: paper.oa_url } : null,
+        paper.openalex_url ? { label: 'OpenAlex', url: paper.openalex_url } : null,
+        paper.source_url ? { label: 'Source', url: paper.source_url } : null,
+      ].filter(Boolean);
+
+      return links
+        .map(link => {
+          const href = link.href || link.url;
+          if (!href) return '';
+          return `<a href="${escapeHtml(href)}" target="_blank" rel="noreferrer">${escapeHtml(link.label || href)}</a>`;
+        })
+        .join('');
+    };
+
+    const renderSection = (title, value) => {
+      const values = asArray(value);
+      if (values.length === 0) return '';
+      const body = values.map(item => `<p>${escapeHtml(typeof item === 'string' ? item : JSON.stringify(item))}</p>`).join('');
+      return `<section class="paper-card-section"><h4>${escapeHtml(title)}</h4>${body}</section>`;
+    };
+
+    const renderPaperCard = (paper) => {
+      const id = paperId(paper);
+      const note = getNote(paper);
+      const tags = combinedTags(paper).slice(0, 16);
+      const authors = asArray(paper.authors).join(', ');
+      const linkMarkup = renderLinks(paper);
+      const relevance = [paper.priority_level, paper.relevance_score].filter(Boolean).join(' · ') || '-';
+
+      return `
+        <article class="paper-card" data-paper-id="${escapeHtml(id)}">
+          <header class="paper-card-head">
+            <div>
+              <p class="paper-card-kicker">${escapeHtml([paper.conference, paper.year].filter(Boolean).join(' / ') || 'Paper')}</p>
+              <h3>${escapeHtml(paper.title || 'Untitled paper')}</h3>
+              ${authors ? `<p class="paper-card-authors">${escapeHtml(authors)}</p>` : ''}
+            </div>
+            <div class="paper-card-side">
+              <button class="paper-favorite ${note.favorite ? 'is-active' : ''}" type="button" data-paper-favorite="${escapeHtml(id)}" aria-label="${escapeHtml(copy.favorite)}">★</button>
+              <span>${escapeHtml(relevance)}</span>
+            </div>
+          </header>
+          <div class="paper-pill-row">
+            ${tags.length ? tags.map(tag => `<button type="button" class="paper-pill" data-pick-paper-tag="${escapeHtml(tag)}">${escapeHtml(tag)}</button>`).join('') : '<span class="paper-pill">No tags</span>'}
+            ${note.rating ? `<span class="paper-pill is-user">${escapeHtml(copy.selfRating)} · ${escapeHtml(note.rating)}</span>` : ''}
+          </div>
+          <div class="paper-card-body">
+            ${renderSection('Abstract', paper.abstract)}
+            ${renderSection('Contribution', paper.main_contribution)}
+            ${renderSection('Problem setting', paper.problem_setting)}
+            ${renderSection('Innovation', paper.innovation)}
+            ${renderSection('Topic fit', paper.nsfc_fit)}
+            ${renderSection('Topic sparks', paper.nsfc_inspiration)}
+            ${renderSection('Technical stack', paper.technical_stack)}
+            ${renderSection('Limitations', paper.limitations)}
+            ${renderSection('Deep-read summary', paper.deep_read_summary)}
+          </div>
+          ${linkMarkup ? `<div class="paper-link-row">${linkMarkup}</div>` : ''}
+          <details class="paper-user-panel">
+            <summary>${escapeHtml(copy.notes)} / ${escapeHtml(copy.customTags)}</summary>
+            <div class="paper-user-fields">
+              <label>
+                <span>${escapeHtml(copy.selfRating)}</span>
+                <select data-paper-rating="${escapeHtml(id)}">
+                  <option value=""></option>
+                  ${['High', 'Medium', 'Low'].map(value => `<option value="${value}"${note.rating === value ? ' selected' : ''}>${value}</option>`).join('')}
+                </select>
+              </label>
+              <label>
+                <span>${escapeHtml(copy.customTags)}</span>
+                <input data-paper-custom-tags="${escapeHtml(id)}" value="${escapeHtml(note.tags)}" placeholder="tag-a, tag-b" />
+              </label>
+              <label>
+                <span>${escapeHtml(copy.notes)}</span>
+                <textarea data-paper-note="${escapeHtml(id)}" rows="3">${escapeHtml(note.note)}</textarea>
+              </label>
+            </div>
+          </details>
+        </article>
+      `;
+    };
+
+    const renderPapers = () => {
+      if (!listEl || !resultMetaEl) return;
+      if (!state.loaded) {
+        listEl.innerHTML = `<div class="paper-empty-state">${escapeHtml(copy.notLoaded)}</div>`;
+        resultMetaEl.textContent = copy.notLoaded;
+        return;
+      }
+
+      const papers = filteredPapers();
+      resultMetaEl.textContent = `${papers.length} ${copy.results}`;
+      listEl.innerHTML = papers.length
+        ? papers.map(renderPaperCard).join('')
+        : `<div class="paper-empty-state">${escapeHtml(copy.empty)}</div>`;
+    };
+
+    const renderTabs = () => {
+      tabButtons.forEach(button => {
+        const isActive = button.dataset.paperTab === state.tab;
+        button.classList.toggle('is-active', isActive);
+        button.setAttribute('aria-selected', String(isActive));
+      });
+    };
+
+    const render = () => {
+      renderTabs();
+      renderFilters();
+      renderMetrics();
+      renderMetadata();
+      renderPapers();
+    };
+
+    const applyPayload = (payload) => {
+      const normalized = normalizePaperList(payload);
+      state.mainPapers = normalized.mainPapers;
+      state.archivedPapers = normalized.archivedPapers;
+      state.metadata = normalized.metadata;
+      state.loaded = true;
+      setStatus(copy.loaded);
+      render();
+    };
+
+    loadUserNotes();
+    render();
+
+    jsonInput?.addEventListener('change', async (event) => {
+      const file = event.target.files?.[0];
+      if (!file) return;
+      try {
+        const text = await file.text();
+        applyPayload(JSON.parse(text));
+      } catch {
+        setStatus(copy.failed);
+      }
+    });
+
+    searchEl?.addEventListener('input', (event) => {
+      state.search = event.target.value;
+      renderPapers();
+    });
+
+    favoriteOnlyEl?.addEventListener('change', (event) => {
+      state.favoriteOnly = event.target.checked;
+      renderPapers();
+    });
+
+    clearEl?.addEventListener('click', () => {
+      state.search = '';
+      state.conference = '';
+      state.year = '';
+      state.tag = '';
+      state.priority = '';
+      state.favoriteOnly = false;
+      if (searchEl) searchEl.value = '';
+      if (favoriteOnlyEl) favoriteOnlyEl.checked = false;
+      render();
+    });
+
+    filterEls.forEach(select => {
+      select.addEventListener('change', () => {
+        const kind = select.dataset.paperFilter;
+        state[kind] = select.value;
+        renderPapers();
+      });
+    });
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        state.tab = button.dataset.paperTab || 'main';
+        render();
+      });
+    });
+
+    root.addEventListener('click', (event) => {
+      const target = event.target;
+      const tagButton = target.closest?.('[data-pick-paper-tag]');
+      const favoriteButton = target.closest?.('[data-paper-favorite]');
+
+      if (tagButton) {
+        state.tag = tagButton.dataset.pickPaperTag || '';
+        render();
+      }
+
+      if (favoriteButton) {
+        const id = favoriteButton.dataset.paperFavorite;
+        if (!id) return;
+        state.userNotes[id] = state.userNotes[id] || { favorite: false, rating: '', tags: '', note: '' };
+        state.userNotes[id].favorite = !state.userNotes[id].favorite;
+        saveUserNotes();
+        renderPapers();
+      }
+    });
+
+    root.addEventListener('input', (event) => {
+      const target = event.target;
+      const noteId = target.dataset?.paperNote;
+      const tagId = target.dataset?.paperCustomTags;
+      if (!noteId && !tagId) return;
+      const id = noteId || tagId;
+      state.userNotes[id] = state.userNotes[id] || { favorite: false, rating: '', tags: '', note: '' };
+      if (noteId) state.userNotes[id].note = target.value;
+      if (tagId) state.userNotes[id].tags = target.value;
+      saveUserNotes();
+    });
+
+    root.addEventListener('change', (event) => {
+      const target = event.target;
+      const ratingId = target.dataset?.paperRating;
+      if (!ratingId) return;
+      state.userNotes[ratingId] = state.userNotes[ratingId] || { favorite: false, rating: '', tags: '', note: '' };
+      state.userNotes[ratingId].rating = target.value;
+      saveUserNotes();
+      renderPapers();
+    });
+  });
+})();</script> </div>   <!-- {body ? (
+          <div>{body}</div>
+        ) : (
+          <>
+            <slot name="content"></slot>
+            {theme.aside.enable && page.aside !== false && (
+              <include src="./widget/index.astro" />
+            )}
+          </>
+        )} --> </main> <footer id="footer"> <div class="footer-top"> <div class="footer-top-shell"> <div class="footer-brand-block"> <div class="footer-brand-line"> <span class="footer-mark" aria-hidden="true">Y</span> <span class="footer-brand-name">张羽 的主页</span> </div> <p class="footer-description"> 参考  <a class="footer-inline-link" href="https://northframe-4he.pages.dev/work/" target="_blank" rel="noreferrer"> <span>Northframe</span> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> </a>  ，并基于  <a class="footer-inline-link" href="https://mocusez.site/en/board/" target="_blank" rel="noreferrer"> <span>Mocusez</span> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> </a>   Astrofly 模板修改，仅作为个人研究、学习和交流使用。 </p> </div> <div class="footer-columns"> <section class="footer-column footer-column-navigation"> <p class="footer-column-title">导航</p> <ul class="footer-link-list"> <li> <a class="footer-link" href="/zh-CN/"> <span>主页</span> </a> </li><li> <a class="footer-link" href="/zh-CN/board/"> <span>关于</span> </a> </li><li> <a class="footer-link" href="/zh-CN/research/"> <span>研究</span> </a> </li><li> <a class="footer-link" href="/zh-CN/publications/"> <span>发表</span> </a> </li><li> <a class="footer-link" href="/zh-CN/articles/"> <span>文章</span> </a> </li><li> <a class="footer-link" href="/zh-CN/apps/"> <span>应用</span> </a> </li> </ul> </section> <section class="footer-column footer-column-social"> <p class="footer-column-title">社交</p> <ul class="footer-link-list"> <li> <a class="footer-link is-external" href="https://github.com/SherlockNolan" target="_blank" rel="noreferrer"> <span>GitHub</span> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> </a> </li> <li> <span class="footer-link footer-link-static"> <span>微信</span> </span> </li> </ul> </section> <section class="footer-column footer-column-availability"> <p class="footer-column-title">说明</p> <p class="footer-availability-lead">欢迎相关的交流。</p> <p class="footer-availability-note">你好NN</p> </section> </div> </div> </div> <div class="footer-bottom"> <div class="footer-bottom-shell"> <p class="footer-bottom-copy">© 2026 Yu Zhang. 基于 Astro 构建。</p> <a class="footer-bottom-link" href="https://github.com/SherlockNolan" target="_blank" rel="noreferrer"> <span>GitHub 个人主页</span> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> </a> </div> </div> </footer> </div> <script type="module" src="/_astro/additional-js.astro_astro_type_script_index_0_lang.CnpMrTuX.js"></script> <div class="js-pjax"></div> <script type="module">"serviceWorker"in navigator&&window.addEventListener("load",()=>{if(["localhost","127.0.0.1","[::1]"].includes(window.location.hostname)){navigator.serviceWorker.getRegistrations().then(e=>{e.forEach(o=>{o.unregister()})});return}navigator.serviceWorker.register("/sw.js")});</script> <div id="search" class="hidden" data-i18n-zero="未找到相关结果" data-i18n-one="找到 [COUNT] 条结果" data-i18n-many="找到 [COUNT] 条结果" data-i18n-searching="搜索中..."> <div id="search-mask"></div> <div id="local-search" class="search-dialog" role="dialog" aria-modal="true" aria-label="搜索"> <div class="search-nav"> <span class="search-dialog-title">站点内容索引</span> <button id="search-mobile-close" class="search-mobile-close" type="button" aria-label="关闭搜索"> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" vector-effect="non-scaling-stroke"></path></svg> </button> </div> <div class="search-inputs"> <input id="search-input" class="search-input" type="search" placeholder="搜索文章..." autocapitalize="none" enterkeyhint="search" autocomplete="off" spellcheck="false"> <button id="search-clear" class="search-clear" type="button" aria-label="清除" hidden></button> <div class="search-line-stage" aria-hidden="true"> <i class="search-line-base"></i> <i class="search-line-runner"></i> </div> </div> <p id="search-meta" class="search-result-meta" hidden></p> <div id="search-scroll" class="search-results-scroll"> <ol id="search-results" class="search-results" role="listbox"></ol> </div> <div class="search-dialog-foot"> <span>输入关键词检索文章、研究与发表记录</span> <span>↑ ↓ NAVIGATE · ENTER OPEN · ESC CLOSE</span> </div> </div> </div> <script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.DM5Lp3PF.js"></script> </body></html>

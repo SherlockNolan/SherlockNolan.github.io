@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="zh-CN" class> <head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>工程技术栈入门 | 张羽 的主页</title><meta name="author" content="张羽"><meta name="copyright" content="张羽"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#eef5ff"><script>(function(){const defaultThemeMode = "light";
+const themeColorLight = "#eef5ff";
+const themeColorDark = "#081220";
+
+    (() => {
+      try {
+        const root = document.documentElement;
+        const savedTheme = localStorage.getItem('appearance-mode');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const hour = new Date().getHours();
+        const isEvening = hour >= 17 && hour < 20;
+        const resolvedTheme =
+          savedTheme === 'light' || savedTheme === 'dark'
+            ? savedTheme
+            : isEvening
+              ? 'dark'
+              : defaultThemeMode === 'dark'
+                ? 'dark'
+                : prefersDark
+                  ? 'dark'
+                  : 'light';
+
+        root.classList.toggle('dark', resolvedTheme === 'dark');
+        root.dataset.theme = resolvedTheme;
+        root.dataset.appearanceMode = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'auto';
+        root.dataset.dayPhase = isEvening ? 'evening' : 'day';
+
+        const themeMeta = document.querySelector('meta[name="theme-color"]');
+        themeMeta?.setAttribute(
+          'content',
+          resolvedTheme === 'dark' ? themeColorDark : themeColorLight,
+        );
+      } catch {
+        document.documentElement.classList.toggle('dark', defaultThemeMode === 'dark');
+        document.documentElement.dataset.theme = defaultThemeMode;
+        document.documentElement.dataset.appearanceMode = 'auto';
+        document.documentElement.dataset.dayPhase = 'day';
+      }
+    })();
+  })();</script><!-- Open Graph --><!-- <include src="./head/Open_Graph.astro" /> --><link rel="shortcut icon" href="/img/title.png" media="(prefers-color-scheme: light)"><link rel="shortcut icon" href="/img/title-dark.png" media="(prefers-color-scheme: dark)"><!-- <link rel="canonical" href={urlNoIndex(null, config.pretty_urls.trailing_index, config.pretty_urls.trailing_html)} /> --><!-- 預解析 --><!-- <include src="./head/preconnect.astro" /> --><!-- 網站驗證 --><!-- <include src="./head/site_verification.astro" /> --><!-- PWA --><link rel="manifest" href="/manifest.json"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Yu Zhang"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png"><!-- {theme.snackbar && theme.snackbar.enable && (
+    <link rel="stylesheet" href={url_for(theme.asset.snackbar_css)} media="print" onload="this.media='all'" />
+  )}
+
+  {theme.lightbox === 'fancybox' && (
+    <link rel="stylesheet" href={url_for(theme.asset.fancybox_css)} media="print" onload="this.media='all'" />
+  )}
+
+  {inject_head_js()} --><!-- google_adsense --><!-- <include src="./head/google_adsense.astro" /> --><!-- analytics --><!-- <include src="./head/analytics.astro" /> --><!-- global config --><!-- <Config config={config} lang={lang}/>
+  <ConfigSite /> --><!-- {injectHtml(theme.inject.head)} --><link rel="stylesheet" href="/_astro/base.BLN7wz7h.css"><link rel="stylesheet" href="/_astro/layout._8ZI_9-P.css"></head><body data-page-kind="post">  <!-- <include src="./fullpage-loading.astro" /> --> <!-- {theme.preloader.enable ? (
+  theme.preloader.source === 1 ? (
+    <include src="./fullpage-loading.astro" />
+  ) : (
+    <include src="./pace.astro" />
+  )
+) : null} --> <!-- {partial('includes/loading/index', {}, { cache: true })} --> <!-- {theme.background && (
+      <div id="web_bg" style={getBgPath(theme.background)}></div>
+    )} --> <!-- {partial('includes/sidebar', {}, { cache: true })} --> <div id="sidebar" class="mobile-editorial-menu" data-mobile-menu-root> <div id="menu-mask" data-mobile-menu-mask></div> <aside id="sidebar-menus" class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Mobile index" aria-hidden="true"> <div class="mobile-menu-top"> <p class="mobile-menu-eyebrow">Mobile index</p> <button class="mobile-menu-close" type="button" data-mobile-menu-close aria-label="关闭"> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" vector-effect="non-scaling-stroke"></path></svg> </button> </div> <nav class="mobile-menu-list" aria-label="Mobile index"> <a class="mobile-menu-link " href="/zh-CN/"> <span class="mobile-menu-index">01</span> <span class="mobile-menu-text"> <span class="mobile-menu-title">主页</span> <span class="mobile-menu-description">返回首页</span> </span> </a><a class="mobile-menu-link " href="/zh-CN/board/"> <span class="mobile-menu-index">02</span> <span class="mobile-menu-text"> <span class="mobile-menu-title">关于</span> <span class="mobile-menu-description">个人简介</span> </span> </a><a class="mobile-menu-link " href="/zh-CN/research/"> <span class="mobile-menu-index">03</span> <span class="mobile-menu-text"> <span class="mobile-menu-title">研究</span> <span class="mobile-menu-description">研究方向</span> </span> </a><a class="mobile-menu-link " href="/zh-CN/publications/"> <span class="mobile-menu-index">04</span> <span class="mobile-menu-text"> <span class="mobile-menu-title">发表</span> <span class="mobile-menu-description">成果索引</span> </span> </a><a class="mobile-menu-link is-active" href="/zh-CN/articles/" aria-current="page"> <span class="mobile-menu-index">05</span> <span class="mobile-menu-text"> <span class="mobile-menu-title">文章</span> <span class="mobile-menu-description">写作与笔记</span> </span> </a><a class="mobile-menu-link " href="/zh-CN/apps/"> <span class="mobile-menu-index">06</span> <span class="mobile-menu-text"> <span class="mobile-menu-title">应用</span> <span class="mobile-menu-description">Web 应用</span> </span> </a> </nav> <div class="mobile-menu-language" data-language-switch> <p> <span>语言</span> <span>点击切换不同语言</span> </p> <button type="button" class="mobile-menu-language-toggle" data-language-toggle aria-haspopup="listbox" aria-expanded="false"> <span>中文</span> <i class="mobile-menu-language-caret" aria-hidden="true"></i> </button> <div class="mobile-menu-language-pop" data-language-pop hidden> <a href="/en/articles/">English</a> </div> </div> <p class="mobile-menu-foot">© 2026 Yu Zhang. Built with Astro.</p> </aside> </div> <script type="module">document.querySelectorAll("[data-language-switch]").forEach(n=>{const a=n.querySelector("[data-language-toggle]"),e=n.querySelector("[data-language-pop]");if(!a||!e)return;const r=()=>{e.setAttribute("hidden",""),a.setAttribute("aria-expanded","false")},d=()=>{e.removeAttribute("hidden"),a.setAttribute("aria-expanded","true")};a.addEventListener("click",t=>{t.stopPropagation(),e.hasAttribute("hidden")?d():r()}),document.addEventListener("click",t=>{e.hasAttribute("hidden")||n.contains(t.target)||r()}),document.addEventListener("keydown",t=>{t.key==="Escape"&&r()})});</script> <div id="body-wrap" class="post has-reading-rail" data-page-kind="post"> <header id="page-header" class="page-header-post"> <nav id="nav" class="site-nav" aria-label="Primary navigation"> <div id="blog-info"> <a class="nav-site-title" href="/zh-CN/" aria-label="张羽 的主页 home"> <span class="site-mark" aria-hidden="true">Y</span>  <span class="site-name">张羽 的主页</span> </a> </div> <div id="menus"> <div class="menus_items"><div class="menus_item"><a class="site-page " href="/zh-CN/"><span>主页</span></a></div><div class="menus_item"><a class="site-page " href="/zh-CN/board/"><span>关于</span></a></div><div class="menus_item"><a class="site-page " href="/zh-CN/research/"><span>研究</span></a></div><div class="menus_item"><a class="site-page " href="/zh-CN/publications/"><span>发表</span></a></div><div class="menus_item"><a class="site-page is-active" href="/zh-CN/articles/" aria-current="page"><span>文章</span></a></div><div class="menus_item"><a class="site-page " href="/zh-CN/apps/"><span>应用</span></a></div></div> <div class="menus_items"><div class="menus_item"><span class="site-page group "><span>中文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/en/articles/"><span>English</span></a></li></ul></div></div> <button id="darkmode" class="nav-control nav-theme-toggle" type="button" aria-label="切换深色模式"> <span class="site-page nav-icon-button"> <i class="fas fa-moon fa-fw"></i> </span> </button> <button id="search-button" class="nav-control nav-search-toggle" type="button" aria-label="搜索"> <span class="site-page nav-icon-button"> <i class="fas fa-search fa-fw"></i> </span> </button> <button id="toggle-menu" class="nav-control nav-menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="sidebar-menus" aria-expanded="false"> <span class="site-page nav-icon-button menu-line-button" aria-hidden="true"> <span></span> <span></span> <span></span> </span> </button> </div> </nav> <div id="post-info" class> <figure class="post-cover-hero"> <img src="/_astro/cover.BIQdooha.png" alt="工程技术栈入门"> </figure> <div class="post-heading-stack"> <p class="post-kicker">技术资料</p> <div id="post-meta"> <span class="post-meta-unit"> <span class="post-meta-label">发表于</span> <time class="post-meta-date-created" datetime="2026-07-19T17:01:00.000Z" title="发表于 2026-07-19"> 2026-07-19 </time> </span> <span class="post-meta-separator">/</span> <span class="post-meta-unit"> <span class="post-meta-label">更新于</span> <time class="post-meta-date-updated" datetime="2026-07-19T22:08:00.000Z" title="更新于 2026-07-19"> 2026-07-19 </time> </span> </div> <h1 class="post-title">工程技术栈入门</h1> <p class="post-summary">动效不是为了显得高级，而是为了帮读者理解层级、位置与节奏。真正难的是让它存在，却不抢戏。</p> </div> </div> </header> <script type="module" src="/_astro/index.astro_astro_type_script_index_0_lang.DyvPffvz.js"></script> <div class="card-widget toc-card mobile-post-toc" data-mobile-toc-root><button class="toc-toggle" type="button" aria-expanded="false" aria-controls="mobile-post-toc-panel-zh-CN"><span class="toc-toggle-copy"><span class="toc-kicker">目录</span><span class="toc-current-heading" data-toc-current-heading>我想保留的动效</span></span><span class="toc-toggle-symbol" data-toc-toggle-symbol aria-hidden="true">+</span><span class="toc-progress-track" aria-hidden="true"><span class="toc-progress-bar" data-toc-progress></span></span></button><div id="mobile-post-toc-panel-zh-CN" class="toc-content" hidden><ol class="toc"> <li class="toc-item toc-level-2"> <div class="toc-row"> <a class="toc-link" href="#我想保留的动效" data-toc-link data-toc-id="我想保留的动效"> <span class="toc-text">我想保留的动效</span> </a> <div class="toc-meta"> <span class="toc-level-label">H2</span> <button class="toc-branch-toggle" type="button" data-toc-branch-toggle aria-expanded="false" aria-label="Toggle 我想保留的动效"> <span data-toc-branch-symbol aria-hidden="true">+</span> </button> </div> </div> <div class="toc-child" data-toc-branch-panel hidden> <ol class="toc"> <li class="toc-item toc-level-3"> <div class="toc-row"> <a class="toc-link" href="#首屏的动效应该服务于落点" data-toc-link data-toc-id="首屏的动效应该服务于落点"> <span class="toc-text">首屏的动效应该服务于落点</span> </a> <div class="toc-meta"> <span class="toc-level-label">H3</span>  </div> </div>  </li><li class="toc-item toc-level-3"> <div class="toc-row"> <a class="toc-link" href="#滚动不是表演是转场" data-toc-link data-toc-id="滚动不是表演是转场"> <span class="toc-text">滚动不是表演，是转场</span> </a> <div class="toc-meta"> <span class="toc-level-label">H3</span>  </div> </div>  </li> </ol> </div> </li><li class="toc-item toc-level-2"> <div class="toc-row"> <a class="toc-link" href="#非线性滚动为什么更自然" data-toc-link data-toc-id="非线性滚动为什么更自然"> <span class="toc-text">非线性滚动为什么更自然</span> </a> <div class="toc-meta"> <span class="toc-level-label">H2</span>  </div> </div>  </li><li class="toc-item toc-level-2"> <div class="toc-row"> <a class="toc-link" href="#动效与视觉层级要配套" data-toc-link data-toc-id="动效与视觉层级要配套"> <span class="toc-text">动效与视觉层级要配套</span> </a> <div class="toc-meta"> <span class="toc-level-label">H2</span>  </div> </div>  </li><li class="toc-item toc-level-2"> <div class="toc-row"> <a class="toc-link" href="#我目前的取舍" data-toc-link data-toc-id="我目前的取舍"> <span class="toc-text">我目前的取舍</span> </a> <div class="toc-meta"> <span class="toc-level-label">H2</span>  </div> </div>  </li> </ol></div></div> <main class="layout page-layout has-rail" id="content-inner">  <div id="post"> <article id="article-container" class="post-content"> <p>页面里最容易过量的东西之一就是动效。它一旦被当成“装饰性能力”来使用，就会很快压过内容本身；但如果完全没有，又会让切换、悬停、滚动这些动作显得生硬。</p>
+<h2 id="我想保留的动效">我想保留的动效</h2>
+<p>我会保留少量但明确的反馈，例如导航下划线、滚动后出现的玻璃态、主题切换时的颜色过渡，以及目录高亮在章节切换时的微弱变化。这些都不是为了“炫”，而是为了告诉读者：页面状态已经变了。</p>
+<h3 id="首屏的动效应该服务于落点">首屏的动效应该服务于落点</h3>
+<p>首屏里最重要的不是每个元素都动，而是让视线知道应该停在哪里。大图先给出气氛，标题稳定落下，副标题以 typed 的方式逐步出现，这样读者会自然地从图像转向文字。</p>
+<h3 id="滚动不是表演是转场">滚动不是表演，是转场</h3>
+<p>当用户离开 hero 进入正文区域时，界面的语气应该跟着收拢。透明导航变为磨砂导航，就是一种很轻的转场：它让人意识到自己从“进入网站”变成了“开始阅读”。</p>
+<h2 id="非线性滚动为什么更自然">非线性滚动为什么更自然</h2>
+<p>很多“scroll down” 按钮的问题，不是它不能滚，而是它滚得太机械。更合适的感觉通常是：</p>
+<ol>
+<li>一点击就快速起步。</li>
+<li>中段维持明确位移，不拖泥带水。</li>
+<li>临近目标区域时自然减速收尾。</li>
+</ol>
+<p>这个节奏更接近手势，也更接近人对“翻到下一节”的预期。</p>
+<h2 id="动效与视觉层级要配套">动效与视觉层级要配套</h2>
+<p>如果一个按钮的 hover 很明显，但正文标题和链接都很弱，读者会误以为按钮是页面的主角。动效必须跟视觉层级同步设计，否则会让层级关系失真。</p>
+<blockquote>
+<p>真正舒服的交互，常常来自被控制住的动效，而不是被堆叠出来的动效。</p>
+</blockquote>
+<h2 id="我目前的取舍">我目前的取舍</h2>
+<p>目前我会优先保留以下几类动效：</p>
+<ul>
+<li>表示状态切换的动效</li>
+<li>表示滚动位置变化的动效</li>
+<li>表示元素可点击的动效</li>
+</ul>
+<p>而我会尽量避免以下几类：</p>
+<ul>
+<li>纯装饰性的连续漂浮</li>
+<li>与阅读无关的大幅缩放</li>
+<li>多个区域同时争抢注意力的进入动画</li>
+</ul>
+<p>页面应该像一个有呼吸的版式系统，而不是持续请求注视的舞台。</p> </article> </div>  <div id="aside-content" class="aside-content"> <div class="sticky_layout"> <div class="card-widget toc-card desktop-post-toc" data-desktop-toc-root><div class="toc-toggle" aria-controls="desktop-post-toc-panel-zh-CN"><span class="toc-kicker">目录</span><span class="toc-progress-track" aria-hidden="true"><span class="toc-progress-bar" data-toc-progress></span></span></div><div id="desktop-post-toc-panel-zh-CN" class="toc-content" data-desktop-toc-panel><ol class="toc"> <li class="toc-item toc-level-2"> <a class="toc-link" href="#我想保留的动效" data-toc-link data-toc-id="我想保留的动效"> <span class="toc-text">我想保留的动效</span> </a> <div class="toc-child"> <ol class="toc"> <li class="toc-item toc-level-3"> <a class="toc-link" href="#首屏的动效应该服务于落点" data-toc-link data-toc-id="首屏的动效应该服务于落点"> <span class="toc-text">首屏的动效应该服务于落点</span> </a>  </li><li class="toc-item toc-level-3"> <a class="toc-link" href="#滚动不是表演是转场" data-toc-link data-toc-id="滚动不是表演是转场"> <span class="toc-text">滚动不是表演，是转场</span> </a>  </li> </ol> </div> </li><li class="toc-item toc-level-2"> <a class="toc-link" href="#非线性滚动为什么更自然" data-toc-link data-toc-id="非线性滚动为什么更自然"> <span class="toc-text">非线性滚动为什么更自然</span> </a>  </li><li class="toc-item toc-level-2"> <a class="toc-link" href="#动效与视觉层级要配套" data-toc-link data-toc-id="动效与视觉层级要配套"> <span class="toc-text">动效与视觉层级要配套</span> </a>  </li><li class="toc-item toc-level-2"> <a class="toc-link" href="#我目前的取舍" data-toc-link data-toc-id="我目前的取舍"> <span class="toc-text">我目前的取舍</span> </a>  </li> </ol></div></div> </div> <!-- {is_post() ? (
+    <>
+      {showToc && tocStyleVal ? (
+        <div class="sticky_layout">
+          <include src="./card_post_toc.astro" />
+        </div>
+      ) : (
+        <>
+          <include src="../includes/widget/card_author.astro" />
+          <include src="../includes/widget/card_announcement.astro" />
+          <include src="../includes/widget/card_top_self.astro" />
+          <div class="sticky_layout">
+            {showToc && <include src="./card_post_toc.astro" />}
+            {page.series && <include src="./card_post_series.astro" />}
+            <include src="../includes/widget/card_recent_post.astro" />
+            <include src="../includes/widget/card_ad.astro" />
+          </div>
+        </>
+      )}
+    </>
+  ) : (
+    <>
+      <include src="../includes/widget/card_author.astro" />
+      <include src="../includes/widget/card_announcement.astro" />
+      <include src="../includes/widget/card_top_self.astro" />
+      <div class="sticky_layout">
+        {showToc && <include src="./card_post_toc.astro" />}
+        <include src="../includes/widget/card_recent_post.astro" />
+        <include src="../includes/widget/card_ad.astro" />
+        <include src="../includes/widget/card_newest_comment.astro" />
+        <include src="../includes/widget/card_categories.astro" />
+        <include src="../includes/widget/card_tags.astro" />
+        <include src="../includes/widget/card_archives.astro" />
+        <include src="../includes/widget/card_webinfo.astro" />
+        <include src="../includes/widget/card_bottom_self.astro" />
+      </div>
+    </> --> <!-- )} --> </div> <!-- {body ? (
+          <div>{body}</div>
+        ) : (
+          <>
+            <slot name="content"></slot>
+            {theme.aside.enable && page.aside !== false && (
+              <include src="./widget/index.astro" />
+            )}
+          </>
+        )} --> </main> <footer id="footer"> <div class="footer-top"> <div class="footer-top-shell"> <div class="footer-brand-block"> <div class="footer-brand-line"> <span class="footer-mark" aria-hidden="true">Y</span> <span class="footer-brand-name">张羽 的主页</span> </div> <p class="footer-description"> 参考  <a class="footer-inline-link" href="https://northframe-4he.pages.dev/work/" target="_blank" rel="noreferrer"> <span>Northframe</span> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> </a>  ，并基于  <a class="footer-inline-link" href="https://mocusez.site/en/board/" target="_blank" rel="noreferrer"> <span>Mocusez</span> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> </a>   Astrofly 模板修改，仅作为个人研究、学习和交流使用。 </p> </div> <div class="footer-columns"> <section class="footer-column footer-column-navigation"> <p class="footer-column-title">导航</p> <ul class="footer-link-list"> <li> <a class="footer-link" href="/zh-CN/"> <span>主页</span> </a> </li><li> <a class="footer-link" href="/zh-CN/board/"> <span>关于</span> </a> </li><li> <a class="footer-link" href="/zh-CN/research/"> <span>研究</span> </a> </li><li> <a class="footer-link" href="/zh-CN/publications/"> <span>发表</span> </a> </li><li> <a class="footer-link" href="/zh-CN/articles/"> <span>文章</span> </a> </li><li> <a class="footer-link" href="/zh-CN/apps/"> <span>应用</span> </a> </li> </ul> </section> <section class="footer-column footer-column-social"> <p class="footer-column-title">社交</p> <ul class="footer-link-list"> <li> <a class="footer-link is-external" href="https://github.com/SherlockNolan" target="_blank" rel="noreferrer"> <span>GitHub</span> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> </a> </li> <li> <span class="footer-link footer-link-static"> <span>微信</span> </span> </li> </ul> </section> <section class="footer-column footer-column-availability"> <p class="footer-column-title">说明</p> <p class="footer-availability-lead">欢迎相关的交流。</p> <p class="footer-availability-note">你好NN</p> </section> </div> </div> </div> <div class="footer-bottom"> <div class="footer-bottom-shell"> <p class="footer-bottom-copy">© 2026 Yu Zhang. 基于 Astro 构建。</p> <a class="footer-bottom-link" href="https://github.com/SherlockNolan" target="_blank" rel="noreferrer"> <span>GitHub 个人主页</span> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> </a> </div> </div> </footer> </div> <script type="module" src="/_astro/additional-js.astro_astro_type_script_index_0_lang.CnpMrTuX.js"></script> <div class="js-pjax"></div> <script type="module">"serviceWorker"in navigator&&window.addEventListener("load",()=>{if(["localhost","127.0.0.1","[::1]"].includes(window.location.hostname)){navigator.serviceWorker.getRegistrations().then(e=>{e.forEach(o=>{o.unregister()})});return}navigator.serviceWorker.register("/sw.js")});</script> <div id="search" class="hidden" data-i18n-zero="未找到相关结果" data-i18n-one="找到 [COUNT] 条结果" data-i18n-many="找到 [COUNT] 条结果" data-i18n-searching="搜索中..."> <div id="search-mask"></div> <div id="local-search" class="search-dialog" role="dialog" aria-modal="true" aria-label="搜索"> <div class="search-nav"> <span class="search-dialog-title">站点内容索引</span> <button id="search-mobile-close" class="search-mobile-close" type="button" aria-label="关闭搜索"> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" vector-effect="non-scaling-stroke"></path></svg> </button> </div> <div class="search-inputs"> <input id="search-input" class="search-input" type="search" placeholder="搜索文章..." autocapitalize="none" enterkeyhint="search" autocomplete="off" spellcheck="false"> <button id="search-clear" class="search-clear" type="button" aria-label="清除" hidden></button> <div class="search-line-stage" aria-hidden="true"> <i class="search-line-base"></i> <i class="search-line-runner"></i> </div> </div> <p id="search-meta" class="search-result-meta" hidden></p> <div id="search-scroll" class="search-results-scroll"> <ol id="search-results" class="search-results" role="listbox"></ol> </div> <div class="search-dialog-foot"> <span>输入关键词检索文章、研究与发表记录</span> <span>↑ ↓ NAVIGATE · ENTER OPEN · ESC CLOSE</span> </div> </div> </div> <script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.DM5Lp3PF.js"></script> </body></html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="en" class> <head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Motion Should Support Reading, Not Interrupt It | Yu Zhang&#39;s Blog</title><meta name="author" content="Yu Zhang"><meta name="copyright" content="Yu Zhang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#eef5ff"><script>(function(){const defaultThemeMode = "light";
+const themeColorLight = "#eef5ff";
+const themeColorDark = "#081220";
+
+    (() => {
+      try {
+        const root = document.documentElement;
+        const savedTheme = localStorage.getItem('appearance-mode');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const hour = new Date().getHours();
+        const isEvening = hour >= 17 && hour < 20;
+        const resolvedTheme =
+          savedTheme === 'light' || savedTheme === 'dark'
+            ? savedTheme
+            : isEvening
+              ? 'dark'
+              : defaultThemeMode === 'dark'
+                ? 'dark'
+                : prefersDark
+                  ? 'dark'
+                  : 'light';
+
+        root.classList.toggle('dark', resolvedTheme === 'dark');
+        root.dataset.theme = resolvedTheme;
+        root.dataset.appearanceMode = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'auto';
+        root.dataset.dayPhase = isEvening ? 'evening' : 'day';
+
+        const themeMeta = document.querySelector('meta[name="theme-color"]');
+        themeMeta?.setAttribute(
+          'content',
+          resolvedTheme === 'dark' ? themeColorDark : themeColorLight,
+        );
+      } catch {
+        document.documentElement.classList.toggle('dark', defaultThemeMode === 'dark');
+        document.documentElement.dataset.theme = defaultThemeMode;
+        document.documentElement.dataset.appearanceMode = 'auto';
+        document.documentElement.dataset.dayPhase = 'day';
+      }
+    })();
+  })();</script><!-- Open Graph --><!-- <include src="./head/Open_Graph.astro" /> --><link rel="shortcut icon" href="/img/title.png" media="(prefers-color-scheme: light)"><link rel="shortcut icon" href="/img/title-dark.png" media="(prefers-color-scheme: dark)"><!-- <link rel="canonical" href={urlNoIndex(null, config.pretty_urls.trailing_index, config.pretty_urls.trailing_html)} /> --><!-- 預解析 --><!-- <include src="./head/preconnect.astro" /> --><!-- 網站驗證 --><!-- <include src="./head/site_verification.astro" /> --><!-- PWA --><link rel="manifest" href="/manifest.json"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Yu Zhang"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png"><!-- {theme.snackbar && theme.snackbar.enable && (
+    <link rel="stylesheet" href={url_for(theme.asset.snackbar_css)} media="print" onload="this.media='all'" />
+  )}
+
+  {theme.lightbox === 'fancybox' && (
+    <link rel="stylesheet" href={url_for(theme.asset.fancybox_css)} media="print" onload="this.media='all'" />
+  )}
+
+  {inject_head_js()} --><!-- google_adsense --><!-- <include src="./head/google_adsense.astro" /> --><!-- analytics --><!-- <include src="./head/analytics.astro" /> --><!-- global config --><!-- <Config config={config} lang={lang}/>
+  <ConfigSite /> --><!-- {injectHtml(theme.inject.head)} --><link rel="stylesheet" href="/_astro/base.BLN7wz7h.css"><link rel="stylesheet" href="/_astro/layout._8ZI_9-P.css"></head><body data-page-kind="post">  <!-- <include src="./fullpage-loading.astro" /> --> <!-- {theme.preloader.enable ? (
+  theme.preloader.source === 1 ? (
+    <include src="./fullpage-loading.astro" />
+  ) : (
+    <include src="./pace.astro" />
+  )
+) : null} --> <!-- {partial('includes/loading/index', {}, { cache: true })} --> <!-- {theme.background && (
+      <div id="web_bg" style={getBgPath(theme.background)}></div>
+    )} --> <!-- {partial('includes/sidebar', {}, { cache: true })} --> <div id="sidebar" class="mobile-editorial-menu" data-mobile-menu-root> <div id="menu-mask" data-mobile-menu-mask></div> <aside id="sidebar-menus" class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Mobile index" aria-hidden="true"> <div class="mobile-menu-top"> <p class="mobile-menu-eyebrow">Mobile index</p> <button class="mobile-menu-close" type="button" data-mobile-menu-close aria-label="Close"> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" vector-effect="non-scaling-stroke"></path></svg> </button> </div> <nav class="mobile-menu-list" aria-label="Mobile index"> <a class="mobile-menu-link " href="/en/"> <span class="mobile-menu-index">01</span> <span class="mobile-menu-text"> <span class="mobile-menu-title">Home</span> <span class="mobile-menu-description">Back to opening frame</span> </span> </a><a class="mobile-menu-link " href="/en/board/"> <span class="mobile-menu-index">02</span> <span class="mobile-menu-text"> <span class="mobile-menu-title">About</span> <span class="mobile-menu-description">Profile and context</span> </span> </a><a class="mobile-menu-link " href="/en/research/"> <span class="mobile-menu-index">03</span> <span class="mobile-menu-text"> <span class="mobile-menu-title">Research</span> <span class="mobile-menu-description">Research directions</span> </span> </a><a class="mobile-menu-link " href="/en/publications/"> <span class="mobile-menu-index">04</span> <span class="mobile-menu-text"> <span class="mobile-menu-title">Publications</span> <span class="mobile-menu-description">Publications index</span> </span> </a><a class="mobile-menu-link is-active" href="/en/articles/" aria-current="page"> <span class="mobile-menu-index">05</span> <span class="mobile-menu-text"> <span class="mobile-menu-title">Articles</span> <span class="mobile-menu-description">Writing and notes</span> </span> </a><a class="mobile-menu-link " href="/en/apps/"> <span class="mobile-menu-index">06</span> <span class="mobile-menu-text"> <span class="mobile-menu-title">Apps</span> <span class="mobile-menu-description">Web apps</span> </span> </a> </nav> <div class="mobile-menu-language" data-language-switch> <p> <span>Language</span> <span>Switch the parallel language route</span> </p> <button type="button" class="mobile-menu-language-toggle" data-language-toggle aria-haspopup="listbox" aria-expanded="false"> <span>English</span> <i class="mobile-menu-language-caret" aria-hidden="true"></i> </button> <div class="mobile-menu-language-pop" data-language-pop hidden> <a href="/zh-CN/articles/">中文</a> </div> </div> <p class="mobile-menu-foot">Research, Publications, Articles, and Apps stay connected as one editorial frame.</p> </aside> </div> <script type="module">document.querySelectorAll("[data-language-switch]").forEach(n=>{const a=n.querySelector("[data-language-toggle]"),e=n.querySelector("[data-language-pop]");if(!a||!e)return;const r=()=>{e.setAttribute("hidden",""),a.setAttribute("aria-expanded","false")},d=()=>{e.removeAttribute("hidden"),a.setAttribute("aria-expanded","true")};a.addEventListener("click",t=>{t.stopPropagation(),e.hasAttribute("hidden")?d():r()}),document.addEventListener("click",t=>{e.hasAttribute("hidden")||n.contains(t.target)||r()}),document.addEventListener("keydown",t=>{t.key==="Escape"&&r()})});</script> <div id="body-wrap" class="post has-reading-rail" data-page-kind="post"> <header id="page-header" class="page-header-post"> <nav id="nav" class="site-nav" aria-label="Primary navigation"> <div id="blog-info"> <a class="nav-site-title" href="/en/" aria-label="Yu Zhang's Blog home"> <span class="site-mark" aria-hidden="true">Y</span>  <span class="site-name">Yu Zhang&#39;s Blog</span> </a> </div> <div id="menus"> <div class="menus_items"><div class="menus_item"><a class="site-page " href="/en/"><span>Home</span></a></div><div class="menus_item"><a class="site-page " href="/en/board/"><span>About</span></a></div><div class="menus_item"><a class="site-page " href="/en/research/"><span>Research</span></a></div><div class="menus_item"><a class="site-page " href="/en/publications/"><span>Publications</span></a></div><div class="menus_item"><a class="site-page is-active" href="/en/articles/" aria-current="page"><span>Articles</span></a></div><div class="menus_item"><a class="site-page " href="/en/apps/"><span>Apps</span></a></div></div> <div class="menus_items"><div class="menus_item"><span class="site-page group "><span>English</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/zh-CN/articles/"><span>中文</span></a></li></ul></div></div> <button id="darkmode" class="nav-control nav-theme-toggle" type="button" aria-label="Toggle Dark Mode"> <span class="site-page nav-icon-button"> <i class="fas fa-moon fa-fw"></i> </span> </button> <button id="search-button" class="nav-control nav-search-toggle" type="button" aria-label="Search"> <span class="site-page nav-icon-button"> <i class="fas fa-search fa-fw"></i> </span> </button> <button id="toggle-menu" class="nav-control nav-menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="sidebar-menus" aria-expanded="false"> <span class="site-page nav-icon-button menu-line-button" aria-hidden="true"> <span></span> <span></span> <span></span> </span> </button> </div> </nav> <div id="post-info" class> <figure class="post-cover-hero"> <img src="/_astro/cover.BIQdooha.png" alt="Motion Should Support Reading, Not Interrupt It"> </figure> <div class="post-heading-stack"> <p class="post-kicker">Interaction Systems</p> <div id="post-meta"> <span class="post-meta-unit"> <span class="post-meta-label">Created</span> <time class="post-meta-date-created" datetime="2026-07-09T18:12:00.000Z" title="Created 2026-07-09"> 2026-07-09 </time> </span> <span class="post-meta-separator">/</span> <span class="post-meta-unit"> <span class="post-meta-label">Updated</span> <time class="post-meta-date-updated" datetime="2026-07-10T22:08:00.000Z" title="Updated 2026-07-10"> 2026-07-10 </time> </span> </div> <h1 class="post-title">Motion Should Support Reading, Not Interrupt It</h1> <p class="post-summary">Motion becomes useful when it explains state, hierarchy, and direction instead of asking for attention on its own.</p> </div> </div> </header> <script type="module" src="/_astro/index.astro_astro_type_script_index_0_lang.DyvPffvz.js"></script> <div class="card-widget toc-card mobile-post-toc" data-mobile-toc-root><button class="toc-toggle" type="button" aria-expanded="false" aria-controls="mobile-post-toc-panel-en"><span class="toc-toggle-copy"><span class="toc-kicker">Contents</span><span class="toc-current-heading" data-toc-current-heading>What motion is worth keeping</span></span><span class="toc-toggle-symbol" data-toc-toggle-symbol aria-hidden="true">+</span><span class="toc-progress-track" aria-hidden="true"><span class="toc-progress-bar" data-toc-progress></span></span></button><div id="mobile-post-toc-panel-en" class="toc-content" hidden><ol class="toc"> <li class="toc-item toc-level-2"> <div class="toc-row"> <a class="toc-link" href="#what-motion-is-worth-keeping" data-toc-link data-toc-id="what-motion-is-worth-keeping"> <span class="toc-text">What motion is worth keeping</span> </a> <div class="toc-meta"> <span class="toc-level-label">H2</span> <button class="toc-branch-toggle" type="button" data-toc-branch-toggle aria-expanded="false" aria-label="Toggle What motion is worth keeping"> <span data-toc-branch-symbol aria-hidden="true">+</span> </button> </div> </div> <div class="toc-child" data-toc-branch-panel hidden> <ol class="toc"> <li class="toc-item toc-level-3"> <div class="toc-row"> <a class="toc-link" href="#the-hero-should-animate-toward-a-focal-point" data-toc-link data-toc-id="the-hero-should-animate-toward-a-focal-point"> <span class="toc-text">The hero should animate toward a focal point</span> </a> <div class="toc-meta"> <span class="toc-level-label">H3</span>  </div> </div>  </li><li class="toc-item toc-level-3"> <div class="toc-row"> <a class="toc-link" href="#scrolling-should-feel-like-a-transition" data-toc-link data-toc-id="scrolling-should-feel-like-a-transition"> <span class="toc-text">Scrolling should feel like a transition</span> </a> <div class="toc-meta"> <span class="toc-level-label">H3</span>  </div> </div>  </li> </ol> </div> </li><li class="toc-item toc-level-2"> <div class="toc-row"> <a class="toc-link" href="#why-nonlinear-scrolling-feels-better" data-toc-link data-toc-id="why-nonlinear-scrolling-feels-better"> <span class="toc-text">Why nonlinear scrolling feels better</span> </a> <div class="toc-meta"> <span class="toc-level-label">H2</span>  </div> </div>  </li><li class="toc-item toc-level-2"> <div class="toc-row"> <a class="toc-link" href="#motion-has-to-match-hierarchy" data-toc-link data-toc-id="motion-has-to-match-hierarchy"> <span class="toc-text">Motion has to match hierarchy</span> </a> <div class="toc-meta"> <span class="toc-level-label">H2</span>  </div> </div>  </li><li class="toc-item toc-level-2"> <div class="toc-row"> <a class="toc-link" href="#the-current-tradeoff" data-toc-link data-toc-id="the-current-tradeoff"> <span class="toc-text">The current tradeoff</span> </a> <div class="toc-meta"> <span class="toc-level-label">H2</span>  </div> </div>  </li> </ol></div></div> <main class="layout page-layout has-rail" id="content-inner">  <div id="post"> <article id="article-container" class="post-content"> <p>Motion is one of the easiest things to overuse in a web interface. When it is treated as visual decoration, it quickly outruns the content itself. But when it disappears entirely, transitions, hovers, and scroll states start to feel abrupt.</p>
+<h2 id="what-motion-is-worth-keeping">What motion is worth keeping</h2>
+<p>I still want a small set of visible cues: the underline beneath navigation labels, the frosted state that appears on scroll, the theme transition between light and dark, and the section highlight inside the table of contents. None of these are there to perform. They are there to explain that something just changed.</p>
+<h3 id="the-hero-should-animate-toward-a-focal-point">The hero should animate toward a focal point</h3>
+<p>On the first screen, movement only helps if it guides the eye. The image sets the mood, the title lands clearly, and the typed subtitle arrives more gradually. That sequence turns the opening view into a handoff from atmosphere to language.</p>
+<h3 id="scrolling-should-feel-like-a-transition">Scrolling should feel like a transition</h3>
+<p>The moment a user leaves the hero and enters the reading zone, the interface should tighten slightly. A transparent navigation bar turning into a frosted one is enough. It signals that the user has moved from entering the site to actually reading it.</p>
+<h2 id="why-nonlinear-scrolling-feels-better">Why nonlinear scrolling feels better</h2>
+<p>A scroll-down control usually feels wrong not because it fails, but because it moves too mechanically. A more natural rhythm tends to be:</p>
+<ol>
+<li>start quickly on click</li>
+<li>cover most of the distance without hesitation</li>
+<li>slow down gently near the target section</li>
+</ol>
+<p>That pattern feels closer to gesture and much closer to how people expect the page to hand them off to the next block.</p>
+<h2 id="motion-has-to-match-hierarchy">Motion has to match hierarchy</h2>
+<p>If a button has a dramatic hover state while headings and links remain quiet, the button starts to feel more important than the writing. Motion needs to respect hierarchy, or it will distort the page’s priorities.</p>
+<blockquote>
+<p>Comfortable interaction usually comes from restrained motion, not stacked motion.</p>
+</blockquote>
+<h2 id="the-current-tradeoff">The current tradeoff</h2>
+<p>Right now I am happy to keep motion in three places:</p>
+<ul>
+<li>state changes</li>
+<li>scroll-linked orientation</li>
+<li>clickability cues</li>
+</ul>
+<p>And I want to avoid it in these places:</p>
+<ul>
+<li>decorative perpetual floating</li>
+<li>large-scale zooms unrelated to reading</li>
+<li>simultaneous entrances that compete for attention</li>
+</ul>
+<p>The page should feel alive, but it should not feel like it is constantly asking to be watched.</p> </article> </div>  <div id="aside-content" class="aside-content"> <div class="sticky_layout"> <div class="card-widget toc-card desktop-post-toc" data-desktop-toc-root><div class="toc-toggle" aria-controls="desktop-post-toc-panel-en"><span class="toc-kicker">Contents</span><span class="toc-progress-track" aria-hidden="true"><span class="toc-progress-bar" data-toc-progress></span></span></div><div id="desktop-post-toc-panel-en" class="toc-content" data-desktop-toc-panel><ol class="toc"> <li class="toc-item toc-level-2"> <a class="toc-link" href="#what-motion-is-worth-keeping" data-toc-link data-toc-id="what-motion-is-worth-keeping"> <span class="toc-text">What motion is worth keeping</span> </a> <div class="toc-child"> <ol class="toc"> <li class="toc-item toc-level-3"> <a class="toc-link" href="#the-hero-should-animate-toward-a-focal-point" data-toc-link data-toc-id="the-hero-should-animate-toward-a-focal-point"> <span class="toc-text">The hero should animate toward a focal point</span> </a>  </li><li class="toc-item toc-level-3"> <a class="toc-link" href="#scrolling-should-feel-like-a-transition" data-toc-link data-toc-id="scrolling-should-feel-like-a-transition"> <span class="toc-text">Scrolling should feel like a transition</span> </a>  </li> </ol> </div> </li><li class="toc-item toc-level-2"> <a class="toc-link" href="#why-nonlinear-scrolling-feels-better" data-toc-link data-toc-id="why-nonlinear-scrolling-feels-better"> <span class="toc-text">Why nonlinear scrolling feels better</span> </a>  </li><li class="toc-item toc-level-2"> <a class="toc-link" href="#motion-has-to-match-hierarchy" data-toc-link data-toc-id="motion-has-to-match-hierarchy"> <span class="toc-text">Motion has to match hierarchy</span> </a>  </li><li class="toc-item toc-level-2"> <a class="toc-link" href="#the-current-tradeoff" data-toc-link data-toc-id="the-current-tradeoff"> <span class="toc-text">The current tradeoff</span> </a>  </li> </ol></div></div> </div> <!-- {is_post() ? (
+    <>
+      {showToc && tocStyleVal ? (
+        <div class="sticky_layout">
+          <include src="./card_post_toc.astro" />
+        </div>
+      ) : (
+        <>
+          <include src="../includes/widget/card_author.astro" />
+          <include src="../includes/widget/card_announcement.astro" />
+          <include src="../includes/widget/card_top_self.astro" />
+          <div class="sticky_layout">
+            {showToc && <include src="./card_post_toc.astro" />}
+            {page.series && <include src="./card_post_series.astro" />}
+            <include src="../includes/widget/card_recent_post.astro" />
+            <include src="../includes/widget/card_ad.astro" />
+          </div>
+        </>
+      )}
+    </>
+  ) : (
+    <>
+      <include src="../includes/widget/card_author.astro" />
+      <include src="../includes/widget/card_announcement.astro" />
+      <include src="../includes/widget/card_top_self.astro" />
+      <div class="sticky_layout">
+        {showToc && <include src="./card_post_toc.astro" />}
+        <include src="../includes/widget/card_recent_post.astro" />
+        <include src="../includes/widget/card_ad.astro" />
+        <include src="../includes/widget/card_newest_comment.astro" />
+        <include src="../includes/widget/card_categories.astro" />
+        <include src="../includes/widget/card_tags.astro" />
+        <include src="../includes/widget/card_archives.astro" />
+        <include src="../includes/widget/card_webinfo.astro" />
+        <include src="../includes/widget/card_bottom_self.astro" />
+      </div>
+    </> --> <!-- )} --> </div> <!-- {body ? (
+          <div>{body}</div>
+        ) : (
+          <>
+            <slot name="content"></slot>
+            {theme.aside.enable && page.aside !== false && (
+              <include src="./widget/index.astro" />
+            )}
+          </>
+        )} --> </main> <footer id="footer"> <div class="footer-top"> <div class="footer-top-shell"> <div class="footer-brand-block"> <div class="footer-brand-line"> <span class="footer-mark" aria-hidden="true">Y</span> <span class="footer-brand-name">Yu Zhang&#39;s Blog</span> </div> <p class="footer-description"> This site is inspired by  <a class="footer-inline-link" href="https://northframe-4he.pages.dev/work/" target="_blank" rel="noreferrer"> <span>Northframe</span> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> </a>  and further reworked from  <a class="footer-inline-link" href="https://mocusez.site/en/board/" target="_blank" rel="noreferrer"> <span>Mocusez</span> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> </a> &#39;s Astrofly foundation into a long-running home for personal research, publication, and writing. </p> </div> <div class="footer-columns"> <section class="footer-column footer-column-navigation"> <p class="footer-column-title">Navigation</p> <ul class="footer-link-list"> <li> <a class="footer-link" href="/en/"> <span>Home</span> </a> </li><li> <a class="footer-link" href="/en/board/"> <span>About</span> </a> </li><li> <a class="footer-link" href="/en/research/"> <span>Research</span> </a> </li><li> <a class="footer-link" href="/en/publications/"> <span>Publications</span> </a> </li><li> <a class="footer-link" href="/en/articles/"> <span>Articles</span> </a> </li><li> <a class="footer-link" href="/en/apps/"> <span>Apps</span> </a> </li> </ul> </section> <section class="footer-column footer-column-social"> <p class="footer-column-title">Social</p> <ul class="footer-link-list"> <li> <a class="footer-link is-external" href="https://github.com/SherlockNolan" target="_blank" rel="noreferrer"> <span>GitHub</span> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> </a> </li> <li> <span class="footer-link footer-link-static"> <span>WeChat</span> </span> </li> </ul> </section> <section class="footer-column footer-column-availability"> <p class="footer-column-title">Notes</p> <p class="footer-availability-lead">Available for research and writing conversations.</p> <p class="footer-availability-note">Supported by NN :D</p> </section> </div> </div> </div> <div class="footer-bottom"> <div class="footer-bottom-shell"> <p class="footer-bottom-copy">© 2026 Yu Zhang. Personal research and writing site built with Astro.</p> <a class="footer-bottom-link" href="https://github.com/SherlockNolan" target="_blank" rel="noreferrer"> <span>GitHub Profile</span> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> </a> </div> </div> </footer> </div> <script type="module" src="/_astro/additional-js.astro_astro_type_script_index_0_lang.CnpMrTuX.js"></script> <div class="js-pjax"></div> <script type="module">"serviceWorker"in navigator&&window.addEventListener("load",()=>{if(["localhost","127.0.0.1","[::1]"].includes(window.location.hostname)){navigator.serviceWorker.getRegistrations().then(e=>{e.forEach(o=>{o.unregister()})});return}navigator.serviceWorker.register("/sw.js")});</script> <div id="search" class="hidden" data-i18n-zero="No results found" data-i18n-one="Found [COUNT] result" data-i18n-many="Found [COUNT] results" data-i18n-searching="Searching..."> <div id="search-mask"></div> <div id="local-search" class="search-dialog" role="dialog" aria-modal="true" aria-label="Search"> <div class="search-nav"> <span class="search-dialog-title">Site content index</span> <button id="search-mobile-close" class="search-mobile-close" type="button" aria-label="Close search"> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" vector-effect="non-scaling-stroke"></path></svg> </button> </div> <div class="search-inputs"> <input id="search-input" class="search-input" type="search" placeholder="Search notes..." autocapitalize="none" enterkeyhint="search" autocomplete="off" spellcheck="false"> <button id="search-clear" class="search-clear" type="button" aria-label="Clear" hidden></button> <div class="search-line-stage" aria-hidden="true"> <i class="search-line-base"></i> <i class="search-line-runner"></i> </div> </div> <p id="search-meta" class="search-result-meta" hidden></p> <div id="search-scroll" class="search-results-scroll"> <ol id="search-results" class="search-results" role="listbox"></ol> </div> <div class="search-dialog-foot"> <span>Type to search articles, research, and publications</span> <span>↑ ↓ NAVIGATE · ENTER OPEN · ESC CLOSE</span> </div> </div> </div> <script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.DM5Lp3PF.js"></script> </body></html>
